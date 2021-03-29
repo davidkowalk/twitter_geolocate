@@ -23,6 +23,24 @@ def main():
 
         url = twitter.get_url(lat, lon, rad)
         twitter.open_standard_browser(url)
+    elif len(args) == 5 and args[1] == "-q":
+
+        import mapquest
+
+        key = args[2]
+        querry = args[3]
+        radius = args[4]
+
+        full_repsonse, code = mapquest.get_json(key, querry)
+
+        if code != 200:
+            print("An error has occured!\n{msg}".format(msg=full_repsonse))
+
+        lat, lon = mapquest.choose_option(full_repsonse)
+
+        url = twitter.get_url(lat, lon, radius)
+        twitter.open_standard_browser(url)
+
     else:
         print(help_str)
 

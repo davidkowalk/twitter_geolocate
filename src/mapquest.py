@@ -26,19 +26,22 @@ def choose_option(full_json):
         print(f"({i}) {result['display_name']}")
         i += 1
 
-    success = False
-    print("\nPlease select an option or type \"exit\" to exit")
+    if len(full_json) == 1:
+        selection = 0
+    else:
+        success = False
+        print("\nPlease select an option or type \"exit\" to exit")
 
-    while not success:
-        c = input(">")
+        while not success:
+            c = input(">")
 
-        if c == "exit":
-            exit(5)
+            if c == "exit":
+                exit(5)
 
-        try:
-            selection = int(c)
-            success = True
-        except:
-            print(f"Could not find result No. {c}\n")
+            try:
+                selection = int(c)
+                success = True
+            except:
+                print(f"Could not find result No. {c}\n")
 
     return full_json[selection-1]["lat"], full_json[selection-1]["lon"]

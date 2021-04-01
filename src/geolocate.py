@@ -50,9 +50,6 @@ def main():
 
         radius = args[i]
 
-        print(key)
-
-        exit()
         full_repsonse, code = mapquest.get_json(key, querry)
 
         if code != 200:

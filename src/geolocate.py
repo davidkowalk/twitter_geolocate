@@ -23,14 +23,36 @@ def main():
 
         url = twitter.get_url(lat, lon, rad)
         twitter.open_standard_browser(url)
-    elif len(args) == 5 and args[1] == "-q":
 
+
+    elif 4 <= len(args) <= 5 and args[1] == "-q":
         import mapquest
 
-        key = args[2]
-        querry = args[3]
-        radius = args[4]
+        i = 2
 
+        if len(args) == 5:
+            key = args[i]
+            i += 1
+        elif len(args) == 4:
+            from os.path import exists
+
+            if exists("./key.txt"):
+
+                with open("./key.txt", "r") as f:
+                    key = f.read().split("\n")[0]
+
+            else:
+                print("Could not find key.txt. Please provide a key in the command or create the file.\nUse \"python3 geolocation.py\" for help.")
+                exit(2)
+
+        querry = args[i]
+        i += 1
+
+        radius = args[i]
+
+        print(key)
+
+        exit()
         full_repsonse, code = mapquest.get_json(key, querry)
 
         if code != 200:

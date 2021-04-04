@@ -27,10 +27,17 @@ result, status = mapquest.get_json(myKey, querry)
 
 **Arguments:** dict full_json
 
-**Output:** int latitude, int longitude
+**Output:** float latitude, float longitude
 
 Takes the dictionary from the mapquest-api and generates a user interface to select the desired location. If only one option is available it will be autoselected.
 The function then extracts the coordinates from the selected location.
+
+**Example:**
+```python
+result, status = mapquest.get_json(myKey, querry)
+if status == 200:
+  lat, long = mapquest.choose_option(result)
+```
 
 ## twitter
 
@@ -43,6 +50,14 @@ The `twitter.py` generates the twitter search querry and opens the standard brow
 **Output:** string url
 
 Formats the twitter search-url with latitude, longitude and radius
+
+**Example:**
+```python
+lat, long = 52.5186202, 13.3761872
+radius = "0.2km"
+
+url = twitter.get_url(lat, long, radius)
+```
 
 ### open_standard_browser()
 

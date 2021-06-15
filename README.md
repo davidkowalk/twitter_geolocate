@@ -49,8 +49,8 @@ Please select an option or type "exit" to exit
 
 ```
 
-If no key is provided in the console the script will look for a file `key.txt` in the same folder and read the first line of that file as a key. If no file is found it will throw an error.
+If no key is provided in the console the script will look for a file `mapkey.txt` in the same folder and read the first line of that file as a key. If no file is found it will throw an error.
 
 ```
-$ python3 gelocate.py -q <querry> <radius>
+$ python3 geolocate.py -q <querry> <radius>
 ```

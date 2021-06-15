@@ -129,4 +129,5 @@ dmypy.json
 .pyre/
 
 #Credentials
-src/key.txt
+src/mapkey.txt
+src/wordkey.txt

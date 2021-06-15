@@ -36,9 +36,9 @@ def main():
         elif len(args) == 4:
             from os.path import exists
 
-            if exists("./key.txt"):
+            if exists("./mapkey.txt"):
 
-                with open("./key.txt", "r") as f:
+                with open("./mapkey.txt", "r") as f:
                     key = f.read().split("\n")[0]
 
             else:
@@ -50,12 +50,49 @@ def main():
 
         radius = args[i]
 
-        full_repsonse, code = mapquest.get_json(key, querry)
+        full_response, code = mapquest.get_json(key, querry)
 
         if code != 200:
-            print("An error has occured!\n{msg}".format(msg=full_repsonse))
+            print("An error has occured!\n{msg}".format(msg=full_response))
 
-        lat, lon = mapquest.choose_option(full_repsonse)
+        lat, lon = mapquest.choose_option(full_response)
+
+        url = twitter.get_url(lat, lon, radius)
+        twitter.open_standard_browser(url)
+
+    elif 4 <= len(args) <= 5 and args[1] == "-w":
+        import what_three_words as words
+
+        i = 2
+
+        if len(args) == 5:
+            key = args[i]
+            i += 1
+        elif len(args) == 4:
+            from os.path import exists
+
+            if exists("./wordkey.txt"):
+
+                with open("./wordkey.txt", "r") as f:
+                    key = f.read().split("\n")[0]
+
+            else:
+                print("Could not find key.txt. Please provide a key in the command or create the file.\nUse \"python3 geolocation.py\" for help.")
+                exit(2)
+
+
+        querry = args[i]
+        i += 1
+
+        radius = args[i]
+
+        full_response, code = words.get_json(key, querry)
+
+        if code != 200:
+            print("An error has occured!\n{msg}".format(msg=full_response))
+
+        lat = full_response["square"]["southwest"]["lat"]
+        lon = full_response["square"]["southwest"]["lng"]
 
         url = twitter.get_url(lat, lon, radius)
         twitter.open_standard_browser(url)

@@ -39,6 +39,23 @@ if status == 200:
   lat, long = mapquest.choose_option(result)
 ```
 
+## what_three_words
+
+The "what_three_words.py" is a wrapper for the "What3Words" api. When provided an api key and a three-word-address the api can produce latitude and longitude coordinates.
+
+### get_json()
+
+**Arguments:** string key, string querry
+
+**Output:** dict | string result, int status_code
+
+This will querry the "What3Words" api to convert a three-word-address to latitude and longitude coordinates and returns the entire json response as a dictionary if successfull, or a string ig not, along with the http status-code.
+
+**Example:**
+```python
+result, status = what_three_words.get_json(myKey, querry)
+```
+
 ## twitter
 
 The `twitter.py` generates the twitter search querry and opens the standard browser.

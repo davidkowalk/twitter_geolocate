@@ -1,7 +1,3 @@
-"""
-https://api.what3words.com/v3/convert-to-coordinates?words=filled.count.soap&key=[API-KEY]
-"""
-
 import json, requests
 
 def get_json(key, querry):

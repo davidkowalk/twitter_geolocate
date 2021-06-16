@@ -12,6 +12,9 @@ $ python3 -c <latitude> <longitude> <radius>
 
 To search for a location name using mapquest-api:
 $ python3 -q <key> <querry> <radius>
+
+To search using a 3-word address:
+$ python3 -w <key> <querry> <radius>
 """
 
 def main():
@@ -42,7 +45,7 @@ def main():
                     key = f.read().split("\n")[0]
 
             else:
-                print("Could not find key.txt. Please provide a key in the command or create the file.\nUse \"python3 geolocation.py\" for help.")
+                print("Could not find key.txt. Please provide a key in the command or create the file \"mapkey.txt\" in the current working directory.\nUse \"python3 geolocation.py\" for help.")
                 exit(2)
 
         querry = args[i]
@@ -77,7 +80,7 @@ def main():
                     key = f.read().split("\n")[0]
 
             else:
-                print("Could not find key.txt. Please provide a key in the command or create the file.\nUse \"python3 geolocation.py\" for help.")
+                print("Could not find key.txt. Please provide a key in the command or create the file \"wordkey.txt\" in the current working directory.\nUse \"python3 geolocation.py\" for help.")
                 exit(2)
 
 

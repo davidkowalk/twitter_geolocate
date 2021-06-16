@@ -1,6 +1,6 @@
 import json, requests
 
-def get_json(key, querry):
+def get_json(key: str, querry: str):
 
     querry = querry.replace(" ", "+")
     limit = 5
@@ -12,3 +12,13 @@ def get_json(key, querry):
     else:
         result = r.text
     return result, r.status_code
+
+def clean_querry(querry: str):
+    """
+    Will remove the 3 slashes from the beginning of a querry
+    """
+
+    if len(querry) > 3 and querry[:3] == "///":
+        return querry[3:]
+    else:
+        return querry

@@ -57,6 +57,7 @@ def main():
 
         if code != 200:
             print("An error has occured!\n{msg}".format(msg=full_response))
+            exit(3)
 
         lat, lon = mapquest.choose_option(full_response)
 
@@ -84,7 +85,7 @@ def main():
                 exit(2)
 
 
-        querry = args[i]
+        querry = words.clean_querry(args[i])
         i += 1
 
         radius = args[i]
@@ -93,6 +94,7 @@ def main():
 
         if code != 200:
             print("An error has occured!\n{msg}".format(msg=full_response))
+            exit(3)
 
         lat = full_response["square"]["southwest"]["lat"]
         lon = full_response["square"]["southwest"]["lng"]

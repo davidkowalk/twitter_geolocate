@@ -1,3 +1,5 @@
+[<img src="https://img.buymeacoffee.com/button-api/?text=Buy Me A Coffee!&emoji=☕&slug=davidkowalk&button_colour=FF5F5F&font_colour=ffffff&font_family=Arial&outline_colour=000000&coffee_colour=FFDD00">](https://www.buymeacoffee.com/davidkowalk)
+
 # Twitter Geolocate
 Twitter Geolocation is a console app that generates twitter search querries for a certain geolocation and opens them in your standard webbrowser. Provide either GPS Coordinates, a What3Words-address (requires a free account) or use the mapquest API to search for a location (requires a free account).
 
